@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"
-import Image from "next/image"
+import { CldVideoPlayer } from 'next-cloudinary';
 import { motion } from "framer-motion"
 import BookingDetailsModal from "@/components/booking-details-modal"
 
@@ -86,17 +86,16 @@ export default function BookingsPage() {
       <div className="relative mb-12">
         <div className="absolute inset-0 overflow-hidden h-[300px] rounded-lg bg-gray-100">
           <div className={`transition-opacity duration-700 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <video
+            <CldVideoPlayer
+              width="1920"
+              height="1080"
+              src="luxury_property_showcase/header-video" // You'll need to replace this with your actual Cloudinary video ID
               autoPlay
               loop
               muted
-              playsInline
-              onLoadedData={handleVideoLoad}
-              preload="auto"
+              onPlay={handleVideoLoad}
               className="w-full h-full object-cover"
-            >
-              <source src="/videos/7578544-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-            </video>
+            />
           </div>
           <div className={`absolute inset-0 bg-black/50 transition-opacity duration-700 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`} />
         </div>
@@ -195,10 +194,11 @@ export default function BookingsPage() {
               <Card className="overflow-hidden h-full flex flex-col">
                 <div className="relative h-48">
                   <Image
-                    src={booking.propertyImage || "/placeholder.svg"}
-                    alt={booking.propertyName}
-                    fill
-                    className="object-cover"
+                    src={booking.propertyImage || "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=800&h=600&auto=format&fit=crop"}
+                    alt={`Property - ${booking.propertyName}`}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover rounded-t-lg"
                   />
                   <div className="absolute top-2 right-2">
                     <Badge

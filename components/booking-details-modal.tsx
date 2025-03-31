@@ -74,10 +74,11 @@ export default function BookingDetailsModal({ bookingId, onClose, isAdmin = fals
             <div className="md:col-span-2 space-y-4">
               <div className="relative h-48 rounded-md overflow-hidden">
                 <Image
-                  src={booking.propertyImage || "/placeholder.svg"}
-                  alt={booking.propertyName}
-                  fill
-                  className="object-cover"
+                  src={booking.propertyImage || "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=800&h=600&auto=format&fit=crop"}
+                  alt={`Property - ${booking.propertyName}`}
+                  width={800}
+                  height={400}
+                  className="w-full aspect-video object-cover rounded-lg"
                 />
                 <div className="absolute top-2 right-2">
                   <Badge
@@ -312,4 +313,3 @@ export default function BookingDetailsModal({ bookingId, onClose, isAdmin = fals
     </>
   )
 }
-

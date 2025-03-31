@@ -82,7 +82,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 z-0">
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-            <source src="/videos/luxury-home.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/darg6tbnp/video/upload/f_auto:video,q_auto/kosiwquujz3uvmbvs3n4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -272,21 +272,25 @@ export default function Home() {
                     title: "Infinity Edge Pool",
                     description:
                       "Seamlessly blending with the horizon, the infinity pool offers a tranquil retreat with panoramic views.",
+                    image: "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?q=80&w=800&h=500&auto=format&fit=crop"
                   },
                   {
                     title: "Wellness Center",
                     description:
                       "Complete with state-of-the-art fitness equipment, yoga studio, sauna, and massage room.",
+                    image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&h=500&auto=format&fit=crop"
                   },
                   {
                     title: "Smart Home Technology",
                     description:
                       "Comprehensive automation system controlling lighting, climate, security, and entertainment.",
+                    image: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&h=500&auto=format&fit=crop"
                   },
                   {
                     title: "Outdoor Living",
                     description:
                       "Multiple terraces, outdoor kitchen, fire pit, and landscaped gardens for entertaining.",
+                    image: "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=800&h=500&auto=format&fit=crop"
                   },
                 ].map((amenity, index) => (
                   <motion.div
@@ -297,25 +301,33 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="bg-card p-6 rounded-lg shadow-md"
                   >
+                    <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src={amenity.image}
+                        alt={amenity.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">{amenity.title}</h3>
                     <p className="text-muted-foreground">{amenity.description}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="rounded-lg overflow-hidden shadow-xl h-full"
+              className="relative h-[600px] rounded-lg overflow-hidden shadow-xl"
             >
               <Image
-                src="/images/pool-view.png"
-                alt="Luxury amenities"
-                width={600}
-                height={800}
-                className="w-full h-full object-cover"
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&h=1200&auto=format&fit=crop"
+                alt="Luxury Property Overview"
+                fill
+                className="object-cover"
               />
             </motion.div>
           </div>
@@ -354,11 +366,12 @@ export default function Home() {
                 </TabsList>
                 <TabsContent value="map" className="aspect-video relative rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=600&width=1000"
-                    alt="Location map"
+                    src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=1000&h=600&auto=format&fit=crop"
+                    alt="Luxury Property Interior"
                     width={1000}
                     height={600}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    priority
                   />
                 </TabsContent>
                 <TabsContent value="3d" className="aspect-video relative rounded-lg overflow-hidden">
@@ -433,4 +446,3 @@ export default function Home() {
     </div>
   )
 }
-

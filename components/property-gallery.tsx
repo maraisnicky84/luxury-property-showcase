@@ -8,26 +8,39 @@ import Image from "next/image"
 export default function PropertyGallery() {
   const [selectedImage, setSelectedImage] = useState(0)
 
+  const defaultImages = [
+    {
+      id: "1",
+      src: "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=800&h=600&auto=format&fit=crop",
+      alt: "Luxury Property View",
+    },
+    {
+      id: "2",
+      src: "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=800&h=600&auto=format&fit=crop",
+      alt: "Interior View",
+    },
+  ]
+
   const images = [
     {
-      src: "/images/exterior.png",
-      alt: "Modern exterior with natural surroundings",
-      title: "Exterior",
+      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop",
+      alt: "Modern luxury living room",
+      title: "Living Room",
     },
     {
-      src: "/images/pool-view.png",
-      alt: "Infinity pool with modern architecture",
-      title: "Pool View",
-    },
-    {
-      src: "/placeholder.svg?height=600&width=800",
-      alt: "Master bedroom suite",
+      src: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800&h=600&auto=format&fit=crop",
+      alt: "Elegant master bedroom",
       title: "Master Suite",
     },
     {
-      src: "/placeholder.svg?height=600&width=800",
-      alt: "Spa-inspired bathroom",
-      title: "Bathroom",
+      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&h=600&auto=format&fit=crop",
+      alt: "Luxury bathroom",
+      title: "Master Bathroom",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&h=600&auto=format&fit=crop",
+      alt: "Gourmet kitchen",
+      title: "Kitchen",
     },
   ]
 
@@ -41,8 +54,8 @@ export default function PropertyGallery() {
         className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl"
       >
         <Image
-          src={images[selectedImage].src || "/placeholder.svg"}
-          alt={images[selectedImage].alt}
+          src={images[selectedImage].src || "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?q=80&w=800&h=600&auto=format&fit=crop"}
+          alt={images[selectedImage].alt || "Property Image"}
           width={1200}
           height={675}
           className="w-full h-full object-cover"
@@ -69,8 +82,8 @@ export default function PropertyGallery() {
             }`}
           >
             <Image
-              src={image.src || "/placeholder.svg"}
-              alt={image.alt}
+              src={image.src || "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?q=80&w=800&h=600&auto=format&fit=crop"}
+              alt={image.alt || "Property Image"}
               width={200}
               height={200}
               className="w-full h-full object-cover"
@@ -81,4 +94,3 @@ export default function PropertyGallery() {
     </div>
   )
 }
-
